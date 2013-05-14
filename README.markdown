@@ -7,6 +7,19 @@ into Symfony so that you can safely and quickly manage database migrations.
 Documentation on how to install and use this bundle is available in the
 Symfony2 [documentation](http://symfony.com/doc/current/bundles/DoctrineMigrationsBundle/index.html).
 
+Multiple Bundle Migrations
+==========================
+
+I've added option to use multiple migration directoried from different bundles.
+You have to add to your config.yml:
+
+    doctrine_migrations:
+        additional_dirs:
+            DsnetCrmAdmBundle: ~
+
+And this bundle will include migrations found in src/Dsnet/CrmAdmBundle/DoctrineMigrations/
+This might be usefull if you share multiple bundles between projects using the same database.
+
 WARNING: Namespace changed
 ==========================
 
@@ -15,3 +28,4 @@ This bundle was previously under the `Symfony\Bundle` namespace and is now moved
 
 See the Resources/docs/index.rst for more information about the required changes in `deps`,
 `AppKernel.php` and `autoload.php` to accomodate for this change.
+
